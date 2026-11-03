@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<title>SANTOS SENSEX</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 30px 16px;
+  background: #080d18;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  max-width: 520px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 29px;
+  margin: 0;
+}
+
+.subtitle {
+  color: #0084ff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.description {
+  color: #bbb;
+  margin: 25px 0;
+  font-size: 14px;
+}
+
+.section-label {
+  display: block;
+  margin: 22px 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[list] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #26364d;
+  border-radius: 10px;
+  background: #142032;
+  color: white;
+  font-size: 15px;
+}
+
+.radio-row {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.radio-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input[type="radio"] {
+  accent-color: #0084ff;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #0084ff;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#resultado {
+  white-space: pre-line;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #142032;
+  color: white;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+<header>
+<h1>SANTOS SENSEX</h1>
+<p class="subtitle">SENSIBILIDADE PERSONALIZADA</p>
+</header>
+
+<p class="description">
+Selecione seu aparelho e personalize sua configuração.
+</p>
+
+<label class="section-label">ESCOLHA SEU CELULAR</label>
+
+<input id="aparelho" list="modelos"
+placeholder="Digite o modelo do celular...">
+
+<datalist id="modelos">
+<option>Samsung Galaxy A01</option>
+<option>Samsung Galaxy A02</option>
+<option>Samsung Galaxy A03</option>
+<option>Samsung Galaxy A04</option>
+<option>Samsung Galaxy A05</option>
+<option>Samsung Galaxy A06</option>
+<option>Samsung Galaxy A10</option>
+<option>Samsung Galaxy A12</option>
+<option>Samsung Galaxy A13</option>
+<option>Samsung Galaxy A14</option>
+<option>Samsung Galaxy A15</option>
+<option>Samsung Galaxy A24</option>
+<option>Samsung Galaxy A25</option>
+<option>Samsung Galaxy A34</option>
+<option>Samsung Galaxy A35</option>
+<option>Samsung Galaxy A54</option>
+<option>Samsung Galaxy A55</option>
+<option>Samsung Galaxy S23</option>
+<option>Samsung Galaxy S24</option>
+<option>Samsung Galaxy S25</option>
+<option>Redmi 9A</option>
+<option>Redmi 9C</option>
+<option>Redmi 10</option>
+<option>Redmi 12</option>
+<option>Redmi 13C</option>
+<option>Redmi Note 10</option>
+<option>Redmi Note 11</option>
+<option>Redmi Note 12</option>
+<option>Redmi Note 13</option>
+<option>Redmi Note 14</option>
+<option>POCO C65</option>
+<option>POCO M5</option>
+<option>POCO X5</option>
+<option>POCO X6</option>
+<option>POCO X7</option>
+<option>Moto E13</option>
+<option>Moto E22</option>
+<option>Moto G04</option>
+<option>Moto G14</option>
+<option>Moto G24</option>
+<option>Moto G54</option>
+<option>Moto G84</option>
+<option>Motorola Edge 50</option>
+<option>iPhone 11</option>
+<option>iPhone 12</option>
+<option>iPhone 13</option>
+<option>iPhone 14</option>
+<option>iPhone 15</option>
+<option>iPhone 16</option>
+<option>Realme C53</option>
+<option>Realme C55</option>
+<option>Realme C67</option>
+<option>Infinix Hot 30</option>
+<option>Infinix Hot 40</option>
+<option>Infinix Note 40</option>
+<option>Tecno Spark 20</option>
+</datalist>
+
+<label class="section-label">
+CONFIGURAÇÃO DE DPI
+</label>
+
+<div class="radio-row">
+<label>
+<input type="radio" name="dpi" value="com">
+Com DPI
+</label>
+
+<label>
+<input type="radio" name="dpi" value="sem" checked>
+Sem DPI
+</label>
+</div>
+
+<button onclick="gerar()">
+GERAR SENSIBILIDADE
+</button>
+
+<div id="resultado">
+Sua sensibilidade aparecerá aqui.
+</div>
+
+<button onclick="copiar()">
+COPIAR CONFIGURAÇÃO
+</button>
+
+</main>
+
+<script>
+function gerar() {
+
+const aparelho = document.getElementById("aparelho").value.trim();
+
+if (!aparelho) {
+alert("Escolha seu celular!");
+return;
+}
+
+const comDpi = document.querySelector(
+'input[name="dpi"]:checked'
+).value === "com";
+
+const texto =
+"SANTOS SENSEX\n\n" +
+"APARELHO: " + aparelho + "\n" +
+"MODO: " + (comDpi ? "COM DPI" : "SEM DPI") + "\n\n" +
+"GERAL: 175\n" +
+"PONTO VERMELHO: 168\n" +
+"MIRA 2X: 160\n" +
+"MIRA 4X: 150\n" +
+"MIRA AWM: 80\n" +
+"OLHADINHA: 140\n\n" +
+(comDpi
+? "DPI SUGERIDO: 400"
+: "DPI: PADRÃO DO APARELHO") +
+"\n\nAjuste os valores conforme sua preferência.";
+
+document.getElementById("resultado").textContent = texto;
+
+}
+
+function copiar() {
+
+const texto = document.getElementById("resultado").textContent;
+
+if (texto === "Sua sensibilidade aparecerá aqui.") {
+alert("Gere uma configuração primeiro!");
+return;
+}
+
+navigator.clipboard.writeText(texto)
+.then(() => {
+alert("Configuração copiada!");
+})
+.catch(() => {
+alert("Não foi possível copiar. Selecione o texto manualmente.");
+});
+
+}
+</script>
+
+</body>
+</html>
